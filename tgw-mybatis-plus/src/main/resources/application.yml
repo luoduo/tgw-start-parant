@@ -1,0 +1,59 @@
+server:
+  port: 9998
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/loansms?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 60
+      idle-timeout: 60000
+      max-lifetime: 60000
+      connection-timeout: 60000
+      connection-test-query: select 1
+      validation-timeout: 3000
+
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.tgw.mybatis.entity
+  typeEnumsPackage: com.tgw.mybatis.enums
+  global-config:
+    # 数据库相关配置
+    db-config:
+      #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: AUTO
+      #字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"
+      field-strategy: not_empty
+      #驼峰下划线转换
+      column-underline: true
+
+      #数据库大写下划线转换
+      #capital-mode: true
+      #逻辑删除配置 (3.1.1版本之前需要配置)
+        #3.1.1开始不再需要这一步
+        ##mybatis-plus.global-config.sql-injector=com.baomidou.mybatisplus.mapper.LogicSqlInjector
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+
+      #配置数据库类型 (3.1.1版本之后,不需要关心数据库类型)
+#      db-type: mysql
+
+    #刷新mapper 调试神器
+    refresh: true
+  # 原生配置
+  configuration:
+    #枚举属性转换器
+    #mybatis-plus 3.0.8版本以前,默认使用defaultEnumTypeHandler, 3.0.8以后,需要配置属性(default-enum-type-handler)
+    default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.EnumTypeHandler
+
+    #配置控制台打印sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: false

@@ -18,11 +18,14 @@
         <fastjson.version>1.2.46</fastjson.version>
         <!-- DB -->
         <mybatis-plus-boot-starter.version>3.1.1</mybatis-plus-boot-starter.version>
+
+        <commons-lang3.version>3.9</commons-lang3.version>
+        <lombok.version>1.18.0</lombok.version>
     </properties>
 
     <modules>
         <module>tgw-mybatis-plus</module>
-        <module>tgw-start-redisTemplete</module>
+        <module>tgw-start-redis-cache</module>
     </modules>
 
     <dependencies>
@@ -59,15 +62,16 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--log4j2-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
         </dependency>
 
         <dependency>
@@ -79,21 +83,16 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.9</version>
+            <version>${commons-lang3.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.0</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.9.1</version>
-        </dependency>
 <!--        <dependency>-->
 <!--            <groupId>cn.hutool</groupId>-->
 <!--            <artifactId>hutool-all</artifactId>-->

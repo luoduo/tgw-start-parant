@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -44,6 +45,9 @@ public class LoanApiChannel implements Serializable {
      */
     @Column(name = "is_delete")
     private Integer isDelete;
+    
+    @Column(name = "create_time")
+    private LocalDateTime createTime;
 
 
 }

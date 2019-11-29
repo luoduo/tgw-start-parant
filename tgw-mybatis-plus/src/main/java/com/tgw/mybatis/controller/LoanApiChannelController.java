@@ -23,13 +23,20 @@ public class LoanApiChannelController {
     
     @Resource
     private LoanApiChannelService loanApiChannelService;
+    
     @GetMapping("/get")
     public Object get(){
         return loanApiChannelService.list();
     }
+    
     @GetMapping("/delete/{id}")
-    public Object get(@PathVariable("id")Long id){
+    public Object delete(@PathVariable("id")Long id){
         return loanApiChannelService.removeById(id);
+    }
+    
+    @GetMapping("/getById/{id}")
+    public Object getById(@PathVariable("id")Long id){
+        return loanApiChannelService.getById(id);
     }
     
 

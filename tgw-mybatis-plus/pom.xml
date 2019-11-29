@@ -11,11 +11,7 @@
     <artifactId>tgw-mybatis-plus</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>tgw-mybatis-plus</name>
-
-    <properties>
-        <java.version>1.8</java.version>
-        <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
-    </properties>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!-- mybatis-plus begin -->
@@ -40,11 +36,6 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.9.1</version>
         </dependency>
     </dependencies>
 

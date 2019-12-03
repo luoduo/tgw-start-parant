@@ -4,7 +4,6 @@ package com.tgw.service.config;
  * @author tanggewei@eglsgame.com
  * @date 2019/12/2 16:45
  */
-//import com.mixpay.business.webservice.WebServiceDemoService;
 
 import com.tgw.service.webservice.WebServiceDemoService;
 import org.apache.cxf.Bus;

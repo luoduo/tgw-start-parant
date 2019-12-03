@@ -1,0 +1,17 @@
+<s:schema xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/"
+          targetNamespace="http://tempuri.org/" elementFormDefault="qualified">
+    <s:element name="ApplicationRegister">
+        <s:complexType>
+            <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="inputdata" type="s:string" />
+            </s:sequence>
+        </s:complexType>
+    </s:element>
+    <s:element name="ApplicationRegisterResponse">
+        <s:complexType>
+            <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="ApplicationRegisterResult" type="s:string" />
+            </s:sequence>
+        </s:complexType>
+    </s:element>
+</s:schema>

@@ -1,0 +1,13 @@
+package com.tgw.tgwstartws;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class TgwStartWsApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}

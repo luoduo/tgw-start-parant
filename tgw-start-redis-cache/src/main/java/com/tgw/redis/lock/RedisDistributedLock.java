@@ -1,6 +1,5 @@
 package com.tgw.redis.lock;
 
-//import com.egls.cashloan.hades.common.constant.RedisKeyPrefixConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.io.ClassPathResource;
@@ -9,6 +8,7 @@ import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.scripting.support.ResourceScriptSource;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
 
@@ -89,7 +89,7 @@ public class RedisDistributedLock {
      */
     public static Optional<String> lock(RedisTemplate<String, String> redisTemplate, String resourceIdentify, long expireTime) {
         log.info("获取资源锁，使用自定义过期时间，资源标识:{}, 过期时间:{}", resourceIdentify, expireTime);
-        String result = redisTemplate.execute(LOCK_SCRIPT, Collections.singletonList(getKey(resourceIdentify)), String.valueOf(expireTime), getLockIdKeyName());
+        String result = redisTemplate.execute(LOCK_SCRIPT, Arrays.asList(getKey(resourceIdentify),getLockIdKeyName()), String.valueOf(expireTime));
         if (StringUtils.isEmpty(result)) {
             log.info("获取资源锁，获取失败。使用自定义过期时间，资源标识:{}, 锁ID:{}, 过期时间:{}", resourceIdentify, result, expireTime);
             return Optional.empty();

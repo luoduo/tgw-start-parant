@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
@@ -24,13 +24,15 @@ class RedisDistributedLockTest {
     
     private static final String TEST_LOCK_KEY = "test";
     @Resource
-    RedisTemplate<String,String> redisTemplate;
+    StringRedisTemplate stringRedisTemplate;
     
     @org.junit.jupiter.api.Test
     public void testLock() {
-        Optional<String> lock = RedisDistributedLock.lock(redisTemplate, TEST_LOCK_KEY);
+        //加锁
+        Optional<String> lock = RedisDistributedLock.lock(stringRedisTemplate, TEST_LOCK_KEY);
         Assert.assertTrue(lock.isPresent());
-        RedisDistributedLock.unLock(redisTemplate, TEST_LOCK_KEY, lock.get());
+        //释放锁
+        RedisDistributedLock.unLock(stringRedisTemplate, TEST_LOCK_KEY, lock.get());
     }
     
     
@@ -47,7 +49,7 @@ class RedisDistributedLockTest {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    lock = RedisDistributedLock.lock(redisTemplate, TEST_LOCK_KEY, 1);
+                    lock = RedisDistributedLock.lock(stringRedisTemplate, TEST_LOCK_KEY, 1);
                 }
             });
         }

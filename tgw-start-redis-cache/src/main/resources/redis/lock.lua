@@ -2,9 +2,10 @@
 
 --[[参数--]]
 local key_name = KEYS[1]
+local lock_id_key_name = KEYS[2]
 local expire_time = ARGV[1]
 -- 取参 并替换掉参数中的神秘的引号
-local lock_id_key_name = string.gsub(ARGV[2],'\"','')
+--local lock_id_key_name = string.gsub(ARGV[2],'\"','')
 
 --print(key_name)
 --print(key_name)

@@ -1,5 +1,8 @@
 package com.tgw.redis.config;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tgw.redis.config.redis.serializer.GenericJackson2JsonRedisSerializerEx;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -78,6 +81,7 @@ public class RedisConfig extends CachingConfigurerSupport {
          */
 //        RedisSerializer serializer = new GenericJackson2JsonRedisSerializer();
         RedisSerializer serializer = new GenericJackson2JsonRedisSerializerEx();
+//        RedisSerializer serializer = new JdkSerializationRedisSerializer();
         
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         redisTemplate.setKeySerializer(new StringRedisSerializer());

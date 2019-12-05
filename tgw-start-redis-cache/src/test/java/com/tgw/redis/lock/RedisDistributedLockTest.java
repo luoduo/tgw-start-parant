@@ -24,7 +24,7 @@ class RedisDistributedLockTest {
     
     private static final String TEST_LOCK_KEY = "test";
     @Resource
-    RedisTemplate redisTemplate;
+    RedisTemplate<String,String> redisTemplate;
     
     @org.junit.jupiter.api.Test
     public void testLock() {

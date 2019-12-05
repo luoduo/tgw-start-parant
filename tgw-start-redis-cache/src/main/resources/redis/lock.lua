@@ -3,8 +3,10 @@
 --[[参数--]]
 local key_name = KEYS[1]
 local expire_time = ARGV[1]
-local lock_id_key_name = ARGV[2]
+local lock_id_key_name = string.gsub(ARGV[2],'\"','')
 
+--print(key_name)
+--print(key_name)
 --[[初始化锁ID--]]
 local exists = redis.call("EXISTS", lock_id_key_name)
 if 0 == exists then

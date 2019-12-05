@@ -119,7 +119,8 @@ public class RedisDistributedLock {
      * @return key
      */
     private static String getKey(String resourceIdentify) {
-        return String.format("{%s}%s", DISTRIBUTED_LOCK_PREFIX, resourceIdentify);
+        String key = String.format("{%s}%s", DISTRIBUTED_LOCK_PREFIX, resourceIdentify);
+        return key;
     }
 
     /**
@@ -128,6 +129,7 @@ public class RedisDistributedLock {
      * @return lock id key name
      */
     private static String getLockIdKeyName() {
-        return String.format("{%s}%s", DISTRIBUTED_LOCK_PREFIX, "ID");
+        String keyName = String.format("{%s}%s", DISTRIBUTED_LOCK_PREFIX, "ID");
+        return keyName;
     }
 }

@@ -36,7 +36,7 @@ public class WebServiceConfig {
      */
     @Bean(name = "cxfServlet")
     public ServletRegistrationBean cxfServlet() {
-        return new ServletRegistrationBean(new CXFServlet(), "/webservice/*");
+        return new ServletRegistrationBean(new CXFServlet(), "/service/*");
     }
     
     
@@ -53,7 +53,7 @@ public class WebServiceConfig {
     @Bean(name = "WebServiceDemoEndpoint")
     public Endpoint sweptPayEndpoint() {
         EndpointImpl endpoint = new EndpointImpl(springBus(), webServiceDemoService);
-        endpoint.publish("/webservice");
+        endpoint.publish("/he");
         return endpoint;
     }
 }

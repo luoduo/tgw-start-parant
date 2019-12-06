@@ -42,7 +42,6 @@ public class RedisConfig extends CachingConfigurerSupport {
 //        redisTemplate.setConnectionFactory(factory);
 //
 //
-//        redisTemplate.setConnectionFactory(redisConnectionFactory);
 //        redisTemplate.setKeySerializer(new StringRedisSerializer());
 //        redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
 //        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
@@ -65,7 +64,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         redisConnectionFactory = this.factory;
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setConnectionFactory(factory);
+        redisTemplate.setConnectionFactory(redisConnectionFactory);
     
 //        // 使用Jackson2JsonRedisSerialize 替换默认序列化(默认采用的是JDK序列化)
 //        Jackson2JsonRedisSerializer<Object> serializer = new Jackson2JsonRedisSerializer<>(Object.class);
@@ -83,12 +82,11 @@ public class RedisConfig extends CachingConfigurerSupport {
         RedisSerializer serializer = new GenericJackson2JsonRedisSerializerEx();
 //        RedisSerializer serializer = new JdkSerializationRedisSerializer();
         
-        redisTemplate.setConnectionFactory(redisConnectionFactory);
         redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.setValueSerializer(serializer);
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(serializer);
         redisTemplate.setHashValueSerializer(serializer);
-        redisTemplate.afterPropertiesSet();
+//        redisTemplate.afterPropertiesSet();
 
         return redisTemplate;
     }

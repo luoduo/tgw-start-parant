@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      name: ConfigClient
+      profile: dev
+      # 分支名
+      label: test
+      # 服务端提供的用户名/密码
+      username: user
+      password: 7a7c85ff-b90c-4700-9393-5ea3927b3289
+      discovery:
+        enabled: true
+        service-id: config-server
+      # 启动项目前检测配置中心是否可用，如果不可用则立即报错
+      fail-fast: true
+  rabbitmq:
+    host: 192.168.0.201
+    port: 5672
+    username: guest
+    password: guest
+
+# 暴露所有端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.int}
+    prefer-ip-address: false
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka/,http://localhost:9001/eureka/
+    fetch-registry: true
+
+logging:
+  level:
+    root: info
+
+---
+spring:
+  profiles: 9040
+server:
+  port: 9040
+
+---
+spring:
+  profiles: 9041
+server:
+  port: 9041

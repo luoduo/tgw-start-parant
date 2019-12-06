@@ -1,0 +1,51 @@
+server:
+  port: 9030
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.int}
+    prefer-ip-address: false
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka/,http://localhost:9001/eureka/
+
+spring:
+  # 配置服务的名字，注册到注册中心
+  application:
+    name: config-server
+  # 安全相关
+  security:
+    user:
+      name: user
+      password: 7a7c85ff-b90c-4700-9393-5ea3927b3289
+  # 开启调用栈追踪, 访问 /trace 接口
+  cloud:
+    bus:
+      trace:
+        enabled: true
+    config:
+      server:
+        git:
+          # Git 仓库地址
+          uri: https://github.com/sunfeilong/config-repo
+          # 搜索路径
+          # search-paths: {application}
+          refresh-rate: 50
+        # 属性覆盖，制定的内容会覆盖配置文件的内容
+        overrides:
+          name: xiaotain
+          from: luoyang
+  rabbitmq:
+    port: 5672
+    host: 192.168.0.201
+    username: guest
+    password: guest
+
+# 暴露所有端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+logging:
+  level:
+    root: info

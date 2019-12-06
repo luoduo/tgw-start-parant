@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tgw.redis.config.redis.serializer.GenericJackson2JsonRedisSerializerEx;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +23,10 @@ import org.springframework.data.redis.serializer.*;
  * @date 2019/11/29 15:25
  */
 @Configuration
-public class RedisConfig extends CachingConfigurerSupport {
+@AutoConfigureBefore(RedisAutoConfiguration.class)
+public class RedisConfig
+//        extends CachingConfigurerSupport
+{
     
     @Autowired
     private RedisConnectionFactory factory;

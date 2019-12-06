@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -25,6 +26,8 @@ class RedisDistributedLockTest {
     private static final String TEST_LOCK_KEY = "test";
     @Resource
     StringRedisTemplate stringRedisTemplate;
+    @Resource
+    RedisTemplate redisTemplate;
     
     @org.junit.jupiter.api.Test
     public void testLock() {
@@ -35,6 +38,13 @@ class RedisDistributedLockTest {
         RedisDistributedLock.unLock(stringRedisTemplate, TEST_LOCK_KEY, lock.get());
     }
     
+    @org.junit.jupiter.api.Test
+    public void main2() {
+        System.out.println("333");
+        redisTemplate.opsForHash().put("key2","keyHash11","金乡");
+        redisTemplate.opsForHash().put("key2","keyHash12","222");
+        System.out.println("444");
+    }
     
     @Test
     public void testMultiThreadUnLock() {

@@ -1,15 +1,13 @@
 package com.tgw.redis.ttt;
 
-import com.tgw.redis.BaseTest;
 import com.tgw.redis.TgwRedisApplication;
-import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+
 
 /**
  * @author tanggewei@eglsgame.com
@@ -17,15 +15,18 @@ import javax.annotation.Resource;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TgwRedisApplication.class)
-public class RedisTempleteTest
+class RedisTempleteTest
 //        extends BaseTest
 {
-    
     @Resource
     private RedisTemplate redisTemplate;
-    @Test
-    public void main() {
-        redisTemplate.opsForHash().put("key1","keyHash11","111");
-        redisTemplate.opsForHash().put("key1","keyHash12","222");
+    
+    
+    @org.junit.jupiter.api.Test
+    public void main2() {
+        System.out.println("333");
+        redisTemplate.opsForHash().put("key2","keyHash11","金乡");
+        redisTemplate.opsForHash().put("key2","keyHash12","222");
+        System.out.println("444");
     }
 }

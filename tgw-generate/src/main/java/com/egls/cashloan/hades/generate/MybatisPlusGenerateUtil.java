@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class MybatisPlusGenerateUtil {
 
-    private static final String databaseURL = "jdbc:mysql://localhost:3306/loansms?characterEncoding=utf8&serverTimezone=Asia/Shanghai";
+    private static final String databaseURL = "jdbc:mysql://localhost:3306/db_sso?characterEncoding=utf8&serverTimezone=Asia/Shanghai";
     private static final String userName = "root";
     private static final String password = "root";
     private static String generateUserName = "";
@@ -32,14 +32,15 @@ public class MybatisPlusGenerateUtil {
         generate(ConfigEnum.CL);
     }
     
-    private static String[] tableNames = {"loan_api_channel"};
+    private static String[] tableNames = {"arc_sys_user","sys_code","sys_platform_info"};
 
     public enum ConfigEnum {
         /**
          * 桌面
          */
-        CL("F:\\IDEAspace\\tgw-start-parent\\tgw-mybatis-plus",
-                "com.tgw.mybatis.tgwmybatis",
+//        CL("F:\\IDEAspace\\tgw-start-parent\\tgw-mybatis-plus",
+        CL("F:\\IDEAspace\\hades-sso\\sso-server",
+                "com.egls.cashloan.ssoserver",
                 "",
                 tableNames
                 ),

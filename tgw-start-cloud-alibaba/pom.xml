@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.1.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.tgw</groupId>
+    <artifactId>tgw-start-cloud-alibaba</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+<!--        <maven.compiler.source>1.8</maven.compiler.source>-->
+<!--        <maven.compiler.target>1.8</maven.compiler.target>-->
+<!--        <java.version>1.8</java.version>-->
+<!--        &lt;!&ndash; 设置maven编码为UTF8&ndash;&gt;-->
+<!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+<!--        <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>-->
+
+<!--        &lt;!&ndash; spring &ndash;&gt;-->
+        <spring-boot.version>2.1.2.RELEASE</spring-boot.version>
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+<!--        &lt;!&ndash; spring end &ndash;&gt;-->
+
+
+<!--        &lt;!&ndash; main &ndash;&gt;-->
+
+<!--        <jackson.version>2.9.8</jackson.version>-->
+
+<!--        &lt;!&ndash; main end &ndash;&gt;-->
+
+<!--        &lt;!&ndash; plugins &ndash;&gt;-->
+<!--        <lombok.version>1.18.6</lombok.version>-->
+<!--        &lt;!&ndash; plugins end &ndash;&gt;-->
+<!--        <pool2.version>2.6.0</pool2.version>-->
+<!--        &lt;!&ndash; auth &ndash;&gt;-->
+<!--        <shiro.version>1.4.0</shiro.version>-->
+<!--        <jwt.version>0.7.0</jwt.version>-->
+<!--        <jjwt.version>3.4.1</jjwt.version>-->
+<!--        <swagger.version>2.6.1</swagger.version>-->
+<!--        <jbcrypt.version>0.4</jbcrypt.version>-->
+<!--        &lt;!&ndash; excel 生成 &ndash;&gt;-->
+<!--        <apache-poi.version>3.6</apache-poi.version>-->
+<!--        <cglib.version>3.2.9</cglib.version>-->
+<!--        &lt;!&ndash; 图形验证码 &ndash;&gt;-->
+<!--        <kaptcha.version>0.0.9</kaptcha.version>-->
+<!--        &lt;!&ndash; DB &ndash;&gt;-->
+<!--        <mybatis-plus-boot-starter.version>3.1.0</mybatis-plus-boot-starter.version>-->
+<!--        <mysql.version>8.0.13</mysql.version>-->
+<!--        &lt;!&ndash; DB end &ndash;&gt;-->
+
+<!--        &lt;!&ndash; utils &ndash;&gt;-->
+<!--        <commons.lang3.version>3.8.1</commons.lang3.version>-->
+<!--        &lt;!&ndash; utils end &ndash;&gt;-->
+
+<!--        <fastjson.version>1.2.51</fastjson.version>-->
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <!--  版本管理  -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>0.2.1.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/libs-milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>repository.springframework.maven.release</id>
+            <name>Spring Framework Maven Release Repository</name>
+            <url>http://maven.springframework.org/milestone/</url>
+        </repository>
+        <repository>
+            <id>org.springframework</id>
+            <url> http://maven.springframework.org/snapshot</url>
+        </repository>
+        <repository>
+            <id>spring-milestone</id>
+            <name>Spring Maven MILESTONE Repository</name>
+            <url>http://repo.spring.io/libs-milestone</url>
+        </repository>
+        <repository>
+            <id>spring-release</id>
+            <name>Spring Maven RELEASE Repository</name>
+            <url>http://repo.spring.io/libs-release</url>
+        </repository>
+    </repositories>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

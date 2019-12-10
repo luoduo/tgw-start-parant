@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tgw.mybatis.enums.ApiChannelCode;
@@ -48,6 +49,7 @@ public class LoanApiChannel implements Serializable {
     @TableLogic(value="1",delval="0")
     @JsonIgnore
     private Integer isDelete;
+    private LocalDateTime createTime;
 
 
 }

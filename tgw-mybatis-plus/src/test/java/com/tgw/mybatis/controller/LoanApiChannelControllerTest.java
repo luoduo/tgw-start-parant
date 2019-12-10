@@ -24,4 +24,8 @@ class LoanApiChannelControllerTest {
     void getById() {
         System.out.println(loanApiChannelService.getById(1));
     }
+    @Test
+    void listAll() {
+        System.out.println(loanApiChannelService.list());
+    }
 }

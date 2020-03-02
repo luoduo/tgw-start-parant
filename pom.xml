@@ -26,6 +26,7 @@
     <modules>
         <module>tgw-mybatis-plus</module>
         <module>tgw-start-redis-cache</module>
+        <module>tgw-start-java</module>
     </modules>
 
     <dependencies>
